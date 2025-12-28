@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Stumble Gays</title>
+  <meta name="viewport" content="width=device-width, height=device-height">
+  <style>
+    body { margin: 0; background: #000; }
+    #unity-container { width: 100vw; height: 100vh; }
+    canvas { width: 100%; height: 100%; display: block; }
+  </style>
+  </head>
+  <body>
+    <div id="unity-container">
+      <canvas id="unity-canvas"></canvas>
+    </div>
+
+  <script>
+    window.dispatchReactUnityEvent = function (eventName, payload) {
+      console.warn("[ReactUnityEvent]", eventName, payload);
+
+      if (eventName === "GetItemPrices") {
+        return JSON.stringify([]);
+      }
+    };
+  </script>
+
+  <script src="https://www.datadoghq-browser-agent.com/datadog-logs-v4.js"></script>
+  <script src="https://www.datadoghq-browser-agent.com/datadog-rum-v4.js"></script>
+  <script src="WebGL.loader.js"></script>
+  <script>
+    createUnityInstance(document.querySelector("#unity-canvas"), {
+      dataUrl: "WebGL.data.unityweb",
+      frameworkUrl: "WebGL.framework.js.unityweb",
+      codeUrl: "WebGL.wasm.unityweb",
+      streamingAssetsUrl: "https://live-assets2.web.stumbleguys.com/unity/0.93.5/live/6c8c30d6-b83c-415a-9264-60c425f5c77c/StreamingAssets/",
+      companyName: "Unknown",
+      productName: "WebGLGame",
+      productVersion: "69.420"
+    });
+  </script>
+</body>
+</html>
