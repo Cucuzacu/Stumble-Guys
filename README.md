@@ -1,2 +1,4 @@
 # Stumble-Guys
-Ever wanted to host Stumble Guys locally??? No? Well, now you can!
+You have to make a web server
+Ill probably keep updating
+This is 0.93.5
